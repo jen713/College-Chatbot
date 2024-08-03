@@ -1,0 +1,1752 @@
+{
+  "name": "College Chatbot-action",
+  "type": "action",
+  "counts": {
+    "actions": 6,
+    "intents": 3,
+    "entities": 4,
+    "data_types": 0,
+    "collections": 0,
+    "global_variables": 0
+  },
+  "status": "Available",
+  "language": "en",
+  "skill_id": "e3b6fa10-d057-4cec-bf14-b0d0f0b40e62",
+  "workspace": {
+    "actions": [
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "digression_failure",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't confirm if you wanted to return to previous topic, let me connect to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "digression_failure",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Failed to confirm topic return"
+                }
+              ]
+            },
+            "next_step": "step_001"
+          },
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. I can connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_001",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Step validation failed"
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't assist you. I will connect you to an agent right away."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Agent requested"
+                }
+              ]
+            },
+            "next_step": "step_003"
+          },
+          {
+            "step": "step_003",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I am afraid I do not understand what you are asking, let me connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_003",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "No action matches"
+                }
+              ]
+            },
+            "next_step": "step_004"
+          },
+          {
+            "step": "step_004",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_004",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Danger word detected"
+                }
+              ]
+            },
+            "next_step": "step_005"
+          },
+          {
+            "step": "step_005",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_005",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Profanity detected"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Fallback",
+        "action": "fallback",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "fallback_connect_to_agent"
+        },
+        "variables": [
+          {
+            "title": "Topic return failed",
+            "variable": "digression_failure",
+            "data_type": "any"
+          },
+          {
+            "title": "I'm afraid I don't understand. I can connect you to an agent.",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry I couldn't assist you. I will connect you to an agent righ",
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "title": "I am afraid I do not understand what you are asking, let me conn",
+            "variable": "step_003",
+            "data_type": "any"
+          },
+          {
+            "title": "It seems this conversation would be best managed",
+            "variable": "step_004",
+            "data_type": "any"
+          },
+          {
+            "title": "Profanity - It seems this conversation",
+            "variable": "step_005",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "run_always",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "danger_word_detected",
+            "title": "Connect to agent",
+            "handlers": [],
+            "resolver": {
+              "type": "fallback"
+            },
+            "variable": "danger_word_detected_variable",
+            "condition": {
+              "entity": "danger_words"
+            },
+            "next_step": "profanity_detected"
+          },
+          {
+            "step": "profanity_detected",
+            "title": "Show warning",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Please use appropriate language when interacting with the assistant."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "max_hits",
+                "handler": "max_hits_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "max_hits": 2,
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "profanity_detected_variable",
+            "condition": {
+              "entity": "profane_words"
+            }
+          }
+        ],
+        "title": "Trigger word detected",
+        "action": "run_always",
+        "boosts": [],
+        "handlers": [],
+        "variables": [
+          {
+            "title": "Profanity detected",
+            "variable": "danger_word_detected_variable",
+            "data_type": "any"
+          },
+          {
+            "title": "Profane word detected",
+            "variable": "profanity_detected_variable",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "anything_else"
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. Please rephrase your question."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001",
+            "condition": {
+              "lte": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action_and_end",
+              "invoke_action": {
+                "action": "fallback",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_002_result_1"
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "gt": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            }
+          }
+        ],
+        "title": "No matches",
+        "action": "anything_else",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "anything_else"
+        },
+        "variables": [
+          {
+            "title": "I am afraid I do not understand what you are asking, please re-p",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002_result_1",
+            "data_type": "any"
+          }
+        ],
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Welcome, how can I assist you?"
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001"
+          }
+        ],
+        "title": "Greet customer",
+        "action": "welcome",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "welcome"
+        },
+        "variables": [
+          {
+            "variable": "step_001",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_9777",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_582",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "**Punjabi University** is a collegiate state public university located in [Patiala](https://en.wikipedia.org/wiki/Patiala), [Punjab](https://en.wikipedia.org/wiki/Punjab,_India), [India](https://en.wikipedia.org/wiki/India). It was established on 30 April 1962 and is only the second [university](https://en.wikipedia.org/wiki/University) in the world to be named after a language,"
+                          },
+                          {
+                            "scalar": " after [Hebrew University](https://en.wikipedia.org/wiki/Hebrew_University) of [Israel](https://en.wikipedia.org/wiki/Israel). Originally it was conceived as a unitary multi-faculty teaching and research university, primarily meant for the development and enrichment of the [Punjabi language](https://en.wikipedia.org/wiki/Punjabi_language) and culture, but alive to the [social](https://en."
+                          },
+                          {
+                            "scalar": "wikipedia.org/wiki/Social) and education requirements of the state.\n\n**Do you want to know about its departments?**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_582",
+            "next_step": "step_491"
+          },
+          {
+            "step": "step_491",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "The prominent university departments are:[[18]](https://en.wikipedia.org/wiki/Punjabi_University#cite_note-18)\n\n\n  - University College of Engineering (CSE/ECE/ME/CE)\n  - Department of Computer Science\n  - Punjabi Department\n  - Linguistics Department\n  - School of Management Studies\n  - Economics\n  - Mathematics\n  - Department of Physiotherapy\n  - Department of Biotechnology\n  -"
+                          },
+                          {
+                            "scalar": " Department of Pharmaceutical Sciences & Drug Research\n  - S.Daljit Singh Sethi[[19]](https://en.wikipedia.org/wiki/Punjabi_University#cite_note-19) Physics Department\n  - Department of Education and Community services\n  - Department of Botany\n\n**Do you want to proceed further?**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_9777",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_491_result_1"
+              }
+            },
+            "variable": "step_491",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_582"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_281"
+          },
+          {
+            "step": "step_281",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Students are encouraged to take active part in sports. Facilities for games such as [hockey](https://en.wikipedia.org/wiki/Field_hockey), [football](https://en.wikipedia.org/wiki/Association_football), [cricket](https://en.wikipedia.org/wiki/Cricket), [basketball](https://en.wikipedia.org/wiki/Basketball), [volleyball](https://en.wikipedia.org/wiki/Volleyball), [athletics](https://en.wikipedia."
+                          },
+                          {
+                            "scalar": "org/wiki/Sport_of_athletics), etc. and well as indoor games are provided. The Punjabi University has a large gymnasium and a hall for indoor games. It is one of the very few institutions in India to possess its own [velodrome](https://en.wikipedia.org/wiki/Velodrome).\n\nThe university has been awarded [Maulana Abul Kalam Azad (MAKA) Trophy](https://en.wikipedia."
+                          },
+                          {
+                            "scalar": "org/wiki/Maulana_Abul_Kalam_Azad_Trophy) nine times, the latest being in the year 2016–2017. MAKA Trophy represents the highest award given for inter-university sports and university sportsperson performance in international and national arena by the [Government of India](https://en.wikipedia.org/wiki/Government_of_India)\n\n**Do you want to know about hostels?**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_281",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_491"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_109"
+          },
+          {
+            "step": "step_109",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "There are three residential hostels for boys and four residential hostels for girls. The hostels house 4000 students. In addition to this, separate boys and girls hostel for engineering college have started functioning."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_109",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_281"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_674"
+          },
+          {
+            "step": "step_674",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "### Regional centres and Neighborhood campuses\n[[edit](https://en.wikipedia.org/w/index.php?title=Punjabi_University&action=edit&section=3)]\n\nThe university has four regional centres: the Guru Kashi Regional Center at [Bathinda](https://en.wikipedia.org/wiki/Bathinda), [Guru Kashi Campus](https://en.wikipedia.org/wiki/Punjabi_University_Guru_Kashi_Campus) at [Talwandi Sabo](https://en.wikipedia."
+                          },
+                          {
+                            "scalar": "org/wiki/Talwandi_Sabo), Regional Centre for [Information Technology](https://en.wikipedia.org/wiki/Information_Technology) and [Management](https://en.wikipedia.org/wiki/Management) at [Mohali](https://en.wikipedia.org/wiki/Mohali), Nawab Sher Mohammad Khan Institute of Advanced Studies in [Urdu](https://en.wikipedia.org/wiki/Urdu), [Persian](https://en.wikipedia."
+                          },
+                          {
+                            "scalar": "org/wiki/Persian_language) and [Arabic](https://en.wikipedia.org/wiki/Arabic_language) at [Malerkotla](https://en.wikipedia.org/wiki/Malerkotla).[[6]](https://en.wikipedia.org/wiki/Punjabi_University#cite_note-6) Punjabi University also maintains seven neighborhood campuses at [Rampura Phul](https://en.wikipedia.org/wiki/Rampura_Phul), [Jhunir](https://en.wikipedia.org/wiki/Jhunir),"
+                          },
+                          {
+                            "scalar": " [Sardulgarh](https://en.wikipedia.org/wiki/Sardulgarh), [Ralla](https://en.wikipedia.org/wiki/Ralla,_Punjab), [Maur](https://en.wikipedia.org/wiki/Maur_Mandi), [Jaito](https://en.wikipedia.org/wiki/Jaito) and Dehla Seehan.[[7]](https://en.wikipedia.org/wiki/Punjabi_University#cite_note-7)\n\n### Constituent colleges\n[[edit](https://en.wikipedia.org/w/index."
+                          },
+                          {
+                            "scalar": "php?title=Punjabi_University&action=edit&section=4)]\n\nThe university has also established 13 constituent colleges[[8]](https://en.wikipedia.org/wiki/Punjabi_University#cite_note-8) at [Mansa](https://en.wikipedia.org/wiki/Mansa,_Punjab), [Rampura Phul](https://en.wikipedia.org/wiki/Rampura_Phul), [Sardulgarh](https://en.wikipedia.org/wiki/Sardulgarh), [Ghudda](https://en.wikipedia."
+                          },
+                          {
+                            "scalar": "org/wiki/Ghudda), Bahadurpur (Mansa), [Barnala](https://en.wikipedia.org/wiki/Barnala), Benra (Dhuri),Chuni Kalan, Dhilwan, [Ghanaur](https://en.wikipedia.org/wiki/Ghanaur), [Jaito](https://en.wikipedia.org/wiki/Jaito), Meera Pur and [Moonak](https://en.wikipedia.org/wiki/Moonak)."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_674",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_109"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_789"
+          },
+          {
+            "step": "step_789",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "**conversation ends here**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_789"
+          }
+        ],
+        "title": "Tell me about your college?",
+        "action": "action_10108",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_10108_intent_16706"
+        },
+        "variables": [
+          {
+            "title": "There are three residential hostels for boys and four residentia",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_109",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "Students are encouraged to take active part in sports. Facilitie",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_281",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "The prominent university departments are:[[18]](https://en.wikip",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_491",
+            "data_type": "yes_no"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_491_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "**Punjabi University** is a collegiate state public university l",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_582",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "### Regional centres and Neighborhood campuses [[edit](https://e",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_674",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "**conversation ends here**",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_789",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "fallback",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_986",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "**Which department do you want to know about?**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Computer Science and Engineering",
+                      "value": {
+                        "input": {
+                          "text": "Computer Science and Engineering"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Civil Engineering",
+                      "value": {
+                        "input": {
+                          "text": "Civil Engineering"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Mechanical Engineering",
+                      "value": {
+                        "input": {
+                          "text": "Mechanical Engineering"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Electronics and Communication Engineering",
+                      "value": {
+                        "input": {
+                          "text": "Electronics and Communication Engineering"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_22258",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_986",
+            "condition": {
+              "and": [
+                {
+                  "exists": {
+                    "system_variable": "digressed_from"
+                  }
+                },
+                {
+                  "exists": {
+                    "system_variable": "digressed_from"
+                  }
+                }
+              ]
+            },
+            "next_step": "step_257"
+          },
+          {
+            "step": "step_257",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Click here to know about cse<a href=\"http://www.punjabiuniversity.ac.in/pages/Courses.aspx?Id=18\">here</a>"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_257",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_986"
+                },
+                {
+                  "value": "Computer Science and Engineering",
+                  "from_entity": "entity_22258"
+                }
+              ]
+            },
+            "next_step": "step_566"
+          },
+          {
+            "step": "step_566",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Click here to know about civil engineering<a href=\"http://punjabiuniversity.ac.in/Pages/Department.aspx?dsenc=14\">here</a>"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_566",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_986"
+                },
+                {
+                  "value": "Civil Engineering",
+                  "from_entity": "entity_22258"
+                }
+              ]
+            },
+            "next_step": "step_911"
+          },
+          {
+            "step": "step_911",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "To know about mech. eng <a href=\"http://punjabiuniversity.ac.in/Pages/Courses.aspx?Id=54\"> click here</a>"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_911",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_986"
+                },
+                {
+                  "value": "Mechanical Engineering",
+                  "from_entity": "entity_22258"
+                }
+              ]
+            },
+            "next_step": "step_973"
+          },
+          {
+            "step": "step_973",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "To know about ECM eni. <a href=\"http://punjabiuniversity.ac.in/Pages/Courses.aspx?Id=30\"> click here</a>"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_973",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_986"
+                },
+                {
+                  "value": "Electronics and Communication Engineering",
+                  "from_entity": "entity_22258"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "tell me about engineering department",
+        "action": "action_9777",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_9777_intent_11136"
+        },
+        "variables": [
+          {
+            "title": "Click here to know about cse<a href=\"http://www.punjabiuniversit",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_257",
+            "data_type": "any"
+          },
+          {
+            "title": "Click here to know about civil engineering<a href=\"http://punjab",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_566",
+            "data_type": "any"
+          },
+          {
+            "title": "To know about mech. eng <a href=\"http://punjabiuniversity.ac.in/",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_911",
+            "data_type": "any"
+          },
+          {
+            "title": "To know about ECM eni. <a href=\"http://punjabiuniversity.ac.in/P",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_973",
+            "data_type": "any"
+          },
+          {
+            "title": "**Which department do you want to know about?**",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_986",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_10108",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      }
+    ],
+    "intents": [
+      {
+        "intent": "action_10108_intent_16706",
+        "examples": [
+          {
+            "text": "Tell me about your college?"
+          },
+          {
+            "text": "where is your college located?"
+          },
+          {
+            "text": "Is your college open for public?"
+          }
+        ]
+      },
+      {
+        "intent": "action_9777_intent_11136",
+        "examples": [
+          {
+            "text": "tell me about engineering department"
+          }
+        ]
+      },
+      {
+        "intent": "fallback_connect_to_agent",
+        "examples": [
+          {
+            "text": "Call agent"
+          },
+          {
+            "text": "I would like to speak to someone"
+          },
+          {
+            "text": "Agent help"
+          },
+          {
+            "text": "I would like to speak to a human"
+          },
+          {
+            "text": "Can I connect to an agent?"
+          }
+        ],
+        "description": "Please transfer me to an agent"
+      }
+    ],
+    "entities": [
+      {
+        "entity": "entity_22258",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Computer Science and Engineering",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Civil Engineering",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Mechanical Engineering",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Electronics and Communication Engineering",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "profane_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "danger_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "sys-yes-no",
+        "values": []
+      }
+    ],
+    "metadata": {
+      "api_version": {
+        "major_version": "v2",
+        "minor_version": "2018-11-08"
+      },
+      "skill": {
+        "counts": {
+          "actions": 6,
+          "intents": 3,
+          "entities": 4,
+          "data_types": 0,
+          "collections": 0,
+          "global_variables": 0
+        }
+      }
+    },
+    "variables": [],
+    "data_types": [],
+    "collections": [],
+    "counterexamples": [],
+    "system_settings": {
+      "variable": {
+        "format": {
+          "time": {
+            "pattern": "short"
+          },
+          "currency": {
+            "fraction_digits": 2
+          }
+        }
+      },
+      "off_topic": {
+        "enabled": true
+      },
+      "auto_learn": {
+        "apply": true
+      },
+      "topic_switch": {
+        "enabled": true,
+        "messages": {
+          "enable_confirmation": true,
+          "confirmation_failure": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "I'm sorry, I did not catch that, please confirm."
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              }
+            ]
+          },
+          "confirmation_request": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "Do you want to continue with the previous topic: "
+                        },
+                        {
+                          "system_variable": "digressed_from"
+                        },
+                        {
+                          "scalar": "?"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              },
+              {
+                "options": [
+                  {
+                    "label": "Yes",
+                    "value": {
+                      "input": {
+                        "text": "Yes"
+                      }
+                    }
+                  },
+                  {
+                    "label": "No",
+                    "value": {
+                      "input": {
+                        "text": "No"
+                      }
+                    }
+                  }
+                ],
+                "response_type": "option",
+                "repeat_on_reprompt": true
+              }
+            ]
+          }
+        },
+        "max_tries": 3
+      },
+      "generative_ai": {
+        "slot_filling": {
+          "enabled": false
+        }
+      },
+      "disambiguation": {
+        "prompt": "Did you mean:",
+        "enabled": true,
+        "randomize": true,
+        "max_suggestions": 5,
+        "suggestion_text_policy": "title",
+        "none_of_the_above_prompt": "None of the above",
+        "use_connect_to_support_prompt": "Connect to support",
+        "single_answer_clarification_prompt": "Something else"
+      },
+      "search_routing": {
+        "target": "conversational_search"
+      },
+      "spelling_auto_correct": true
+    },
+    "learning_opt_out": false,
+    "language": "en"
+  },
+  "description": "created for assistant 0988c0b3-c246-4775-9c20-affd259f8d91",
+  "dialog_settings": {
+    "source_assistant": "c918634f-c8a6-4b50-a1fe-f686fa79c900"
+  },
+  "created": "2024-08-02T12:04:41.938Z",
+  "updated": "2024-08-02T12:04:41.938Z",
+  "snapshot": "1",
+  "assistant_id": "0988c0b3-c246-4775-9c20-affd259f8d91",
+  "assistant_references": []
+}
